@@ -1,0 +1,16 @@
+{ 
+   "projects":[
+      {
+         "id":"1",
+         "projectName":"Spring Expo Mobile App",
+         "projectSummary":"Created a mobile app for the Spring 2015 Poster Expo.",
+	 "pathToImg":"res/expomobileapp.png"
+      },
+      {
+         "id":"2",
+         "projectName":"Beauty Shop Website",
+         "projectSummary":"Created a website using HTML, CSS, and Javascript for a beauty shop.",
+	 "pathToImg":"res/beautyshopwebsite.png"
+      }
+   ]
+} 

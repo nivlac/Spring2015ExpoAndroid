@@ -1,0 +1,24 @@
+{ 
+   "students":[
+      {
+         "id":"1",
+         "name":"Calvin Keith",
+         "summary":"I am a fourth year computer science with a passion for coding.",
+         "skillA":"Java",
+	 "skillB":"C++",
+	 "pathToImg":"res/calvinkeith.png",
+	 "linkedInURL":"linkedin.com/calvinkeith",
+	 "project":"Spring 2015 Expo App"
+      },
+      {
+         "id":"2",
+         "name":"James Ye",
+         "summary":"I am a third year cmputer science with a strong knowledge of python.",
+         "skillA":"Python",
+	 "skillB":"Java",
+	 "pathToImg":"res/jamesye.png",
+	 "linkedInURL":"linkedin.com/jamesye",
+	 "project":"Spring 2015 Expo App"
+      }
+   ]
+} 
