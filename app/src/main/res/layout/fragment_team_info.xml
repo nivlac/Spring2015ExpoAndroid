@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.cs100w.calvin.spring2015expoapp.TeamInfoActivity$PlaceholderFragment"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/projectImage"
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/project_name_text"
+        android:id="@+id/projectNameText"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:text="@string/project_description_text"
+        android:id="@+id/projectDescriptionText"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_group_members_text"
+        android:id="@+id/viewGroupButton"
+        android:layout_gravity="center_horizontal" />
+
+    <RatingBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:layout_gravity="center_horizontal"
+        android:numStars="7"
+        android:stepSize="1.0"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/star_description_text"
+        android:id="@+id/ratingDescriptionText"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit_rating_text"
+        android:id="@+id/submitRatingButton"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp" />
+
+</LinearLayout>
