@@ -3,22 +3,52 @@
       {
          "id":"1",
          "name":"Calvin Keith",
-         "summary":"I am a fourth year computer science with a passion for coding.",
+         "summary":"Currently, I am a fourth year undergrad student studying Computer Science at San Jose State University. During my time at San Jose State, I have worked in a start up company, won 1st place in a school sponsored Hack-a-Thon, created an Android app for the Cinequest Movie Festival, and gained four years of experience in Java.",
          "skillA":"Java",
-	 "skillB":"C++",
-	 "pathToImg":"res/calvinkeith.png",
-	 "linkedInURL":"linkedin.com/calvinkeith",
-	 "project":"Spring 2015 Expo App"
+	     "skillB":"Android",
+	     "pathToImg":"@drawable/calvinkeith",
+	     "linkedInURL":"www.linkedin.com/in/calvinkeithcs/en",
+	     "project":"Spring Expo Mobile App"
       },
       {
          "id":"2",
          "name":"James Ye",
-         "summary":"I am a third year cmputer science with a strong knowledge of python.",
-         "skillA":"Python",
-	 "skillB":"Java",
-	 "pathToImg":"res/jamesye.png",
-	 "linkedInURL":"linkedin.com/jamesye",
-	 "project":"Spring 2015 Expo App"
+         "summary":"Passionate about technology and computers early in my life, which led to me to pursue a computer science degree. Best method I learn is by being hands and learning through trial and error.",
+         "skillA":"C",
+	     "skillB":"Java",
+	     "pathToImg":"@drawable/jamesye",
+	     "linkedInURL":"https://www.linkedin.com/in/jamesye1",
+	     "project":"Spring Expo Mobile App"
+      },
+      {
+         "id":"3",
+         "name":"Evan Rennie",
+         "summary":"I'm currently pursuing a degree in Computer Science with a minor in Mathematics from San Jose State University. I'm currently a senior with a solid background in Java, C, C# and web based programming. I have designed programs of 20 or more classes containing several thousand lines of code.",
+         "skillA":"Java",
+         "skillB":"C#",
+         "pathToImg":"@drawable/evanrennie",
+         "linkedInURL":"www.linkedin.com/pub/evan-rennie/96/874/921/en",
+         "project":"Spring Expo Mobile App"
+      },
+      {
+         "id":"4",
+         "name":"Erikson Bautista",
+         "summary":"As a student who is very interested how the inner-machinations of computer software work, I enjoy not only coding in different languages, but also developing different kinds of applications for the everyday user--whether it be websites, mobile apps, or computer programs.",
+         "skillA":"Java",
+         "skillB":"Javascript",
+         "pathToImg":"@drawable/eriksonbautista",
+         "linkedInURL":"www.linkedin.com/in/eriksonbautista/en",
+         "project":"Beauty Shop Website"
+      },
+      {
+         "id":"5",
+         "name":"Andy Diep",
+         "summary":"I’m attending San Jose State University with a major of Computer Science. I love playing different varieties of games and I have many interesting ideas to making new games.",
+         "skillA":"Java",
+      	 "skillB":"Agile",
+      	 "pathToImg":"@drawable/andydiep",
+      	 "linkedInURL":"https://www.linkedin.com/pub/andy-diep/76/425/732",
+      	 "project":"Beauty Shop Website"
       }
    ]
 } 

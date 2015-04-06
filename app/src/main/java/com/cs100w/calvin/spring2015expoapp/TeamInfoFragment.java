@@ -1,14 +1,17 @@
 package com.cs100w.calvin.spring2015expoapp;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +28,7 @@ public class TeamInfoFragment extends Fragment {
 
     private String projectID;
     private TeamProject project;
+    private String projectName;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -37,7 +41,17 @@ public class TeamInfoFragment extends Fragment {
                 Drawable d = getResources().getDrawable(imageResource);
                 ((ImageView)view.findViewById(R.id.projectImage)).setImageDrawable(d);
                 ((TextView)view.findViewById(R.id.projectNameText)).setText(project.getProjectName());
+                projectName = project.getProjectName();
                 ((TextView)view.findViewById(R.id.projectDescriptionText)).setText(project.getProjectSummary());
+                ((Button)view.findViewById(R.id.viewGroupButton)).setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        if(projectName != null){
+                            Intent i = new Intent(getActivity(), StudentInfoActivity.class);
+                            i.putExtra("project_name", projectName);
+                            startActivity(i);
+                        }
+                    }
+                });
             }
             else{
 
@@ -45,6 +59,7 @@ public class TeamInfoFragment extends Fragment {
 
                return view;
             }
+
 
 
     public String loadJSONFromAsset() {

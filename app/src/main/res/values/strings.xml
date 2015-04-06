@@ -7,6 +7,7 @@
     <string name="expo_introduction">Welcome to the Spring 2015 Poster Expo</string>
     <string name="start_tour_button_text">Start Tour</string>
     <string name="title_activity_team_info">TeamInfoActivity</string>
+    <string name="title_activity_student_info">StudentInfoActivity</string>
     <string name="project_name_text">Website Remodel Group</string>
     <string name="project_description_text">In this project we remodeled the website for the college of science! The technologies we used were Javascript, HTML, and CSS. We also learned to use the AGILE method. It was a lot of fun!</string>
     <string name="view_group_members_text">View Group Members</string>
