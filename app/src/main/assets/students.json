@@ -7,7 +7,7 @@
          "skillA":"Java",
 	     "skillB":"Android",
 	     "pathToImg":"@drawable/calvinkeith",
-	     "linkedInURL":"www.linkedin.com/in/calvinkeithcs/en",
+	     "linkedInURL":"http://www.linkedin.com/in/calvinkeithcs/en",
 	     "project":"Spring Expo Mobile App"
       },
       {
@@ -17,7 +17,7 @@
          "skillA":"C",
 	     "skillB":"Java",
 	     "pathToImg":"@drawable/jamesye",
-	     "linkedInURL":"https://www.linkedin.com/in/jamesye1",
+	     "linkedInURL":"http://www.linkedin.com/in/jamesye1",
 	     "project":"Spring Expo Mobile App"
       },
       {
@@ -27,7 +27,7 @@
          "skillA":"Java",
          "skillB":"C#",
          "pathToImg":"@drawable/evanrennie",
-         "linkedInURL":"www.linkedin.com/pub/evan-rennie/96/874/921/en",
+         "linkedInURL":"http://www.linkedin.com/pub/evan-rennie/96/874/921/en",
          "project":"Spring Expo Mobile App"
       },
       {
@@ -37,7 +37,7 @@
          "skillA":"Java",
          "skillB":"Javascript",
          "pathToImg":"@drawable/eriksonbautista",
-         "linkedInURL":"www.linkedin.com/in/eriksonbautista/en",
+         "linkedInURL":"http://www.linkedin.com/in/eriksonbautista/en",
          "project":"Beauty Shop Website"
       },
       {
@@ -47,7 +47,7 @@
          "skillA":"Java",
       	 "skillB":"Agile",
       	 "pathToImg":"@drawable/andydiep",
-      	 "linkedInURL":"https://www.linkedin.com/pub/andy-diep/76/425/732",
+      	 "linkedInURL":"http://www.linkedin.com/pub/andy-diep/76/425/732",
       	 "project":"Beauty Shop Website"
       }
    ]

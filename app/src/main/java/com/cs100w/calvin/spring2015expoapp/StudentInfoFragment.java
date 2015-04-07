@@ -1,12 +1,16 @@
 package com.cs100w.calvin.spring2015expoapp;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,7 +44,18 @@ public class StudentInfoFragment extends Fragment {
         ((TextView)v.findViewById(R.id.studentSummaryText)).setText(getArguments().getString("student_summary"));
         ((TextView)v.findViewById(R.id.skillAText)).setText("Skill 1: " + getArguments().getString("skill_a"));
         ((TextView)v.findViewById(R.id.skillBText)).setText("Skill 2: " + getArguments().getString("skill_b"));
-        Log.e("Yes", "made it");
+        final Activity activity = getActivity();
+                ((Button) v.findViewById(R.id.linkedInButton)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String url = getArguments().getString("linkedin_url");
+                if (!url.isEmpty()) {
+                    Uri webpage = Uri.parse(url);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                    startActivity(intent);
+
+                }
+            }
+        });
         return v;
     }
 

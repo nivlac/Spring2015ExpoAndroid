@@ -19,6 +19,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
     private String dText;
+    private final int  NUM_OF_PROJECTS = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +38,15 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dText = input.getText().toString();
-                Intent intent = new Intent(MainActivity.this, TeamInfoActivity.class);
-                intent.putExtra("project_id", dText);
-                startActivity(intent);
+                if(Integer.parseInt(dText) < NUM_OF_PROJECTS && Integer.parseInt(dText) > 0){
+                    Intent intent = new Intent(MainActivity.this, TeamInfoActivity.class);
+                    intent.putExtra("project_id", dText);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Enter a number 0 - " + NUM_OF_PROJECTS, Toast.LENGTH_SHORT);
+                }
+
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
