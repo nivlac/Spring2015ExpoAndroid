@@ -6,6 +6,9 @@ import android.support.v13.app.FragmentPagerAdapter;
 
 import java.util.List;
 
+/**
+ * A custom page adapter to hold a list of fragments. Will contain the student info fragments.
+ */
 class PageAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments;
 

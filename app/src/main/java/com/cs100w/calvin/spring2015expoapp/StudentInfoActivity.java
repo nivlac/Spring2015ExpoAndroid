@@ -35,7 +35,10 @@ public class StudentInfoActivity extends Activity {
         Log.e("Yes","" +  fragments.size());
     }
 
-
+    /**
+     * Load the json file into a readable and parsable string.
+     * @return a json formatted string
+     */
     public String loadJSONFromAsset() {
         String json;
         try {
@@ -61,6 +64,12 @@ public class StudentInfoActivity extends Activity {
 
     }
 
+    /**
+     *
+     * @param json The formatted json string
+     * @param projectName Name of the project which you are trying to retrieve students
+     * @return A list of students in the project.
+     */
     public List<Student> getStudents(String json, String projectName){
         try {
             List<Student> students = new ArrayList<>();
@@ -95,7 +104,7 @@ public class StudentInfoActivity extends Activity {
         List<Fragment> fList = new ArrayList<>();
         List<Student> students = getStudents(loadJSONFromAsset(), projectName);
         for(Student s : students) {
-            fList.add(StudentInfoFragment.newInstance(s.getName(),s.getSummary(),s.getSkillA(),s.getSkillB(),s.getPathToImg(),s.getLinkedInURL()));
+            fList.add(StudentInfoFragment.newInstance(s.getId(),s.getName(),s.getSummary(),s.getSkillA(),s.getSkillB(),s.getPathToImg(),s.getLinkedInURL()));
         }
         return fList;
     }

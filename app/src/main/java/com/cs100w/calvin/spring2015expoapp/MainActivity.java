@@ -2,8 +2,10 @@ package com.cs100w.calvin.spring2015expoapp;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -15,17 +17,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
+/**
+ * The activity that opens when the app opens. Starts the tour for the user.
+ */
 public class MainActivity extends Activity {
 
     private String dText;
-    private final int  NUM_OF_PROJECTS = 2;
+    private final int  NUM_OF_PROJECTS = 2; //Number of projects in the expo.
+
+    /**
+     * Set the layout for the activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button startTourButton = (Button) findViewById(R.id.startTourButton);
     }
+
+    /**
+     * Starts the tour when the start tour button is pressed.
+     * Dialog box opens asking for the project ID number.
+     * @param view
+     */
     public void startTour(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Enter Team Number");
@@ -38,11 +52,13 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dText = input.getText().toString();
-                if(Integer.parseInt(dText) < NUM_OF_PROJECTS && Integer.parseInt(dText) > 0){
+                //If the number is within the number of projects, start the info activity.
+                if(Integer.parseInt(dText) <= NUM_OF_PROJECTS && Integer.parseInt(dText) > 0){
                     Intent intent = new Intent(MainActivity.this, TeamInfoActivity.class);
                     intent.putExtra("project_id", dText);
                     startActivity(intent);
                 }
+                //Create error dialog asking user to enter valid project ID.
                 else{
                     Toast.makeText(MainActivity.this, "Enter a number 0 - " + NUM_OF_PROJECTS, Toast.LENGTH_SHORT);
                 }
@@ -56,6 +72,7 @@ public class MainActivity extends Activity {
             }
         });
 
+        //Show dialog box.
         builder.show();
 
     }
@@ -64,6 +81,7 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
         return true;
     }
     //Hi Debra
@@ -74,9 +92,15 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_favorites) {
+            SharedPreferences getFavorites = getSharedPreferences("FAVORITES", Context.MODE_PRIVATE);
+            if(getFavorites.getStringSet("key", null) == null){
+                Toast.makeText(this, "No Favorites!", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Intent intent = new Intent(this, FavoritesActivity.class);
+                startActivity(intent);
+            }
         }
 
         return super.onOptionsItemSelected(item);
