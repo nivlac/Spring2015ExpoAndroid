@@ -17,13 +17,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 /**
  * The activity that opens when the app opens. Starts the tour for the user.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private String dText;
     private final int  NUM_OF_PROJECTS = 2; //Number of projects in the expo.
+    private Button scanBtn;
 
     /**
      * Set the layout for the activity.
@@ -32,7 +36,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button startTourButton = (Button) findViewById(R.id.startTourButton);
+        scanBtn = (Button)findViewById(R.id.scan_button);
+        scanBtn.setOnClickListener(this);
     }
 
     /**
@@ -77,6 +82,10 @@ public class MainActivity extends Activity {
 
     }
 
+    public void scanPage() {
+        IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+        scanIntegrator.initiateScan();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -98,11 +107,18 @@ public class MainActivity extends Activity {
                 Toast.makeText(this, "No Favorites!", Toast.LENGTH_SHORT).show();
             }
             else {
-                Intent intent = new Intent(this, FavoritesActivity.class);
-                startActivity(intent);
+                /*Intent intent = new Intent(this, FavoritesActivity.class);
+                startActivity(intent);*/
             }
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.scan_button) {
+            scanPage();
+        }
     }
 }
