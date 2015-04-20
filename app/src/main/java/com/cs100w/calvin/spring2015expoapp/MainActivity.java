@@ -90,23 +90,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void scanPage() {
         //Initiates scanner, prompts to download if not available
-        Intent scanIntent = new Intent("com.google.zxing.client.android.SCAN");
+        /*Intent scanIntent = new Intent("com.google.zxing.client.android.SCAN");
         scanIntent.putExtra("SCAN_MODE","QR__CODE_MODE");
-        startActivityForResult(scanIntent, 0);
+        startActivityForResult(scanIntent, 0);*/
+        IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+        scanIntegrator.initiateScan();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == 0) {
-            if(resultCode == RESULT_OK) {
-                String results = data.getStringExtra("SCAN_RESULT");
-                Uri link = Uri.parse(results);
-                Intent intent = new Intent(Intent.ACTION_VIEW, link);
-                startActivity(intent);
-            }
-            else if(resultCode == RESULT_CANCELED) {
-                Toast toast = Toast.makeText(this,"No Scan Data!",Toast.LENGTH_SHORT);
-                toast.show();
-            }
+        //Handles data received from QR scan
+        IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+        if(scanningResult != null) {
+            String results = data.getStringExtra("SCAN_RESULT");
+            Uri link = Uri.parse(results);
+            Intent intent = new Intent(Intent.ACTION_VIEW, link);
+            startActivity(intent);
+        }
+        if(resultCode == RESULT_CANCELED) {
+            Toast toast = Toast.makeText(this, "No Scan Data!", Toast.LENGTH_SHORT);
+            toast.show();
         }
 
     }
