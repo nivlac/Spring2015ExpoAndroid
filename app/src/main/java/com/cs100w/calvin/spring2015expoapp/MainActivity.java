@@ -15,10 +15,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.net.Uri;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+import java.net.URL;
 
 /**
  * The activity that opens when the app opens. Starts the tour for the user.
@@ -29,6 +33,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private final int  NUM_OF_PROJECTS = 2; //Number of projects in the expo.
     private Button scanBtn;
 
+
     /**
      * Set the layout for the activity.
      */
@@ -38,6 +43,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         scanBtn = (Button)findViewById(R.id.scan_button);
         scanBtn.setOnClickListener(this);
+
     }
 
     /**
@@ -83,8 +89,26 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void scanPage() {
-        IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-        scanIntegrator.initiateScan();
+        //Initiates scanner, prompts to download if not available
+        Intent scanIntent = new Intent("com.google.zxing.client.android.SCAN");
+        scanIntent.putExtra("SCAN_MODE","QR__CODE_MODE");
+        startActivityForResult(scanIntent, 0);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 0) {
+            if(resultCode == RESULT_OK) {
+                String results = data.getStringExtra("SCAN_RESULT");
+                Uri link = Uri.parse(results);
+                Intent intent = new Intent(Intent.ACTION_VIEW, link);
+                startActivity(intent);
+            }
+            else if(resultCode == RESULT_CANCELED) {
+                Toast toast = Toast.makeText(this,"No Scan Data!",Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        }
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
