@@ -89,10 +89,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void scanPage() {
-        //Initiates scanner, prompts to download if not available
-        /*Intent scanIntent = new Intent("com.google.zxing.client.android.SCAN");
-        scanIntent.putExtra("SCAN_MODE","QR__CODE_MODE");
-        startActivityForResult(scanIntent, 0);*/
         IntentIntegrator scanIntegrator = new IntentIntegrator(this);
         scanIntegrator.initiateScan();
     }
